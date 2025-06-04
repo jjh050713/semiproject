@@ -94,5 +94,5 @@ jobs:
             docker compose -f ./compose-semiproject.yaml up -d
             sleep 15
             
-            docker compose -f ./compose-multijobs.yaml ps
-            docker compose -f ./compose-multijobs.yaml logs
+            docker compose -f ./compose-semiproject.yaml ps
+            docker compose -f ./compose-semiproject.yaml logs
