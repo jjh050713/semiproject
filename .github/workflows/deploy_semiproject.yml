@@ -75,7 +75,6 @@ jobs:
           source: "compose-semiproject.yaml"
           target: "/home/${{ env.USERNAME }}"
 
-
   run_test:
     needs: upload_compose
     runs-on: ubuntu-22.04
@@ -87,11 +86,11 @@ jobs:
           host: ${{ env.HOSTNAME }}
           username: ${{ env.USERNAME }}
           key: ${{ secrets.EC2_PRIVATEKEY }}
-          port: 22
+          port: 12137
           script: |
-            docker compose -f ./compose-semiproject.yaml down  
+            docker compose -f ./compose-multijobs.yaml down  
             docker image rm -f siestageek/semiproject
-            docker compose -f ./compose-semiproject.yaml up -d
+            docker compose -f ./compose-multijobs.yaml up -d
             sleep 15
             
             docker compose -f ./compose-multijobs.yaml ps
