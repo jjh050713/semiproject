@@ -1,5 +1,6 @@
 name: deploy ec2 semiproject
 
+
 on:
   workflow_dispatch
 
